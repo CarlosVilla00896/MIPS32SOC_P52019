@@ -37,6 +37,7 @@ module MIPS32SOC (
     wire isZero /*verilator public*/;
     wire bitXtend;
     wire invalidOpcode /*verilator public*/;
+    reg isBranch; //sera 1 si hay alguna branch instruction
   
     assign func = inst[5:0];
     assign rd = inst[15:11];
@@ -54,13 +55,30 @@ module MIPS32SOC (
     assign aluOperand2 = aluSrc? imm32 : rfData2; // MUX
     assign rfWriteData = rfWriteDataSel[0]? memData : aluResult; // MUX
 
-    // Next PC value
+        //En este always verifico si hay alguna instruccion del tipo branch
+    always @(isBeq, isBne, isZero) begin
+      if(isBeq & isZero)
+        isBranch = 1'b1;
+      else if (isBne & ~isZero)
+        isBranch = 1'b1;
+      else
+        isBranch = 1'b0;
+    end
+
+// Next PC value
     always @ (*) begin
-        /* 
-         * TODO: Compute next PC.  Take into account
-         * the JMP, BEQ and BNE instructions
-         */
-        nextPC = pcPlus4;
+      case (isJmp)
+        1'b0: 
+          begin
+            case (isBranch)
+              1'b0: nextPC = pcPlus4;
+              1'b1: nextPC = branchTargetAddr; 
+              default: nextPC = 32'bx;
+            endcase
+          end
+        1'b1: nextPC = jmpTarget32;
+        default: nextPC = 32'bx;
+      endcase
     end
   
     // PC

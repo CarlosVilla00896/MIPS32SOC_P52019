@@ -18,5 +18,121 @@ module ControlUnit(
     output invOpcode //! Invalid opcode or function
 );
 
+always @ (opc or func)
+begin
+    isJmp = 1'b0;
+    isBeq = 1'b0;
+    isBne = 1'b0;
+    rfWriteDataSel = 2'b00;
+    rfWriteAddrSel = 1'b0;
+    rfWriteEnable = 1'b0;
+    memWrite = 1'b0;
+    memRead = 1'b0;
+    aluSrc = 1'b0;
+    aluFunc = 3'b000;
+    bitXtend = 1'b0; 
+    invOpcode = 1'b1;
+
+    case (opc)
+        6'h0:
+            case (func)
+                `MIPS_ADD:
+                    begin
+                        rfWriteAddrSel = 1'b1;
+                        rfWriteEnable = 1'b1;
+                        aluSrc = 1'b0;
+                        aluFunc = `ALU_ADD;
+                        rfWriteDataSel = 1'b0;
+                        invOpcode = 1'b0;
+                    end 
+                `MIPS_SUB:
+                    begin
+                        rfWriteEnable = 1'b1;
+                        aluSrc = 1'b0;
+                        rfWriteAddrSel = 1'b1;
+                        rfWriteDataSel = 2'b00;
+                        aluFunc = `ALU_SUB;
+                        invOpcode = 1'b0;
+                    end
+                `MIPS_AND:
+                    begin
+                       rfWriteAddrSel = 1'b1;
+                       rfWriteEnable = 1'b1;
+                       aluSrc = 1'b0;
+                       aluFunc = `ALU_AND;
+                       rfWriteDataSel = 2'b00;
+                       invOpcode = 1'b0;
+                    end
+                `MIPS_OR:
+                    begin
+                        rfWriteEnable = 1'b1;
+                        aluSrc = 1'b0;
+                        rfWriteAddrSel = 1'b1;
+                        rfWriteDataSel = 2'b00;
+                        aluFunc = `ALU_OR;
+                        invOpcode = 1'b0;
+                    end
+                `MIPS_SLT:
+                    begin
+                        rfWriteEnable = 1'b1;
+                        aluSrc = 1'b0;
+                        rfWriteAddrSel = 1'b1;
+                        rfWriteDataSel = 2'b00;
+                        aluFunc = `ALU_SLT;
+                        invOpcode = 1'b0;
+                    end    
+                default:
+                    begin
+                        
+                    end 
+            endcase
+        `MIPS_LW:
+            begin
+                rfWriteAddrSel = 1'b0;
+                rfWriteEnable = 1'b1;
+                aluSrc = 1'b1;
+                bitXtend = 1'b1;
+                aluFunc = `ALU_ADD;
+                memRead = 1'b1;
+                rfWriteDataSel = 1'b1;
+                invOpcode = 1'b0;
+            end
+        `MIPS_SW:
+            begin
+                rfWriteAddrSel = 1'b0;
+                rfWriteEnable = 1'b0;
+                aluSrc = 1'b1;
+                bitXtend = 1'b1;
+                aluFunc = `ALU_ADD;
+                memWrite = 1'b1;
+                invOpcode = 1'b0;
+            end
+        `MIPS_BEQ:
+            begin
+                aluFunc = `ALU_SUB;
+                // bitXtend = 1'b1;
+                isBeq = 1'b1;
+                invOpcode = 1'b0;
+            end
+        `MIPS_BNE:
+            begin
+                aluFunc = `ALU_SUB;
+                // bitXtend = 1'b1;
+                isBne = 1'b1;
+                invOpcode = 1'b0;
+            end
+        `MIPS_JUMP:
+            begin
+                isJmp = 1'b1;
+                invOpcode = 1'b0;
+            end
+        default:
+            begin
+                
+            end 
+    endcase
+end
+
+
 endmodule
 
