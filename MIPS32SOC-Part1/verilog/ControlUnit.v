@@ -110,14 +110,12 @@ begin
         `MIPS_BEQ:
             begin
                 aluFunc = `ALU_SUB;
-                // bitXtend = 1'b1;
                 isBeq = 1'b1;
                 invOpcode = 1'b0;
             end
         `MIPS_BNE:
             begin
                 aluFunc = `ALU_SUB;
-                // bitXtend = 1'b1;
                 isBne = 1'b1;
                 invOpcode = 1'b0;
             end
