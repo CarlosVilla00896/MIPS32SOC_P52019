@@ -44,6 +44,7 @@ module MIPS32SOC (
     wire invalidAddr /*verilator public*/;
     wire [10:0] physicalAddress;
     wire memEnable;
+    wire isLui;
   
     assign func = inst[5:0];
     assign rd = inst[15:11];
@@ -59,8 +60,15 @@ module MIPS32SOC (
 
     assign rfWriteAddr = rfWriteAddrSel? rd : rt; // MUX
     assign aluOperand2 = aluSrc? imm32 : rfData2; // MUX
-    assign rfWriteData = rfWriteDataSel[0]? memData : aluResult; // MUX
+    // assign rfWriteData = rfWriteDataSel[0]? memData : aluResult; // MUX
 
+    always @ (*)
+    begin
+      if(isLui)
+        rfWriteData = {imm16, 16'b0};
+      else
+        rfWriteData = rfWriteDataSel[0]? memData : aluResult;
+    end
 
         //En este always verifico si hay alguna instruccion del tipo branch
     always @(isBeq, isBne, isZero) begin
@@ -73,20 +81,26 @@ module MIPS32SOC (
     end
 
 // Next PC value
-    always @ (*) begin
-      case (isJmp)
-        1'b0: 
-          begin
-            case (isBranch)
-              1'b0: nextPC = pcPlus4;
-              1'b1: nextPC = branchTargetAddr; 
+  always @ (*) 
+  begin
+    if(invalidOpcode | invalidAddr | invalidPC)
+      nextPC = nextPC;
+    else
+      begin
+        case (isJmp)
+              1'b0: 
+                begin
+                  case (isBranch)
+                    1'b0: nextPC = pcPlus4;
+                    1'b1: nextPC = branchTargetAddr; 
+                    default: nextPC = 32'bx;
+                  endcase
+                end
+              1'b1: nextPC = jmpTarget32;
               default: nextPC = 32'bx;
-            endcase
-          end
-        1'b1: nextPC = jmpTarget32;
-        default: nextPC = 32'bx;
-      endcase
-    end
+          endcase
+      end
+  end
   
     // PC
     always @ (posedge clk) begin
@@ -171,6 +185,7 @@ module MIPS32SOC (
     .aluFunc( aluFunc ),
     .bitXtend( bitXtend ),
     .invOpcode( invalidOpcode ),
-    .memEnable(memEnable)
+    .memEnable(memEnable),
+    .isLui( isLui )
   );
 endmodule

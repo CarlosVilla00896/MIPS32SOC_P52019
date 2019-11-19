@@ -6,7 +6,7 @@ module DataMemory (
   input memRead,
   output [31:0] readData
 );
-  reg [31:0] memory[1024:2047] /*verilator public*/;
+  reg [31:0] memory[0:2047] /*verilator public*/;
 
   assign readData = memRead? memory[addr] : 32'hz;
 
@@ -17,7 +17,7 @@ module DataMemory (
 
   initial begin
 `ifndef NO_INIT_MEM
-    $readmemh("data.mif", memory, 1024, 2047);
+    $readmemh("data.mif", memory, 0, 2047);
 `endif
   end
 endmodule 

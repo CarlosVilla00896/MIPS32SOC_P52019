@@ -16,12 +16,14 @@ module ControlUnit(
     output [2:0] aluFunc, //! ALU operation
     output bitXtend, //! Bit extension, 0 = sign extend, 1 = zero extend
     output invOpcode, //! Invalid opcode or function
-    output memEnable
+    output memEnable,
+    output isLui
 ); 
-assign memEnable = memWrite | memRead;
+assign memEnable = memWrite || memRead;
 
 always @ (opc or func)
 begin
+    isLui = 0;
     isJmp = 1'b0;
     isBeq = 1'b0;
     isBne = 1'b0;
@@ -135,7 +137,7 @@ begin
                 bitXtend = 1'b0;
                 aluFunc = `ALU_ADD;
                 memRead = 1'b1;
-                rfWriteDataSel = 2'b1;
+                rfWriteDataSel = 2'b01;
                 invOpcode = 1'b0;
             end
         `MIPS_ADDI:
@@ -210,6 +212,7 @@ begin
             end
         `MIPS_LUI:
             begin
+                isLui = 1;
                 rfWriteAddrSel = 1'b0;
                 rfWriteEnable = 1'b1;
                 aluSrc = 1'b1;

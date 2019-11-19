@@ -16,23 +16,25 @@ assign invalidAddress = _invalidAddress;
 always @ (*)
 begin
     if(memEnable)
-        if(virtualAddress >=32'h10010000 && virtualAddress <= 32'h10010FFF)
-            begin
-                temp = (virtualAddress -  32'h10010000)/4;
-                _physicalAddress = temp[10:0];
-                _invalidAddress = 1'b0;
-            end
-        else if(virtualAddress >= 32'hEFFFF000 && virtualAddress <= 332'hEFFFFFFF)
-            begin
-                temp2 = (virtualAddress>>2);
-                _physicalAddress = temp;
-                _invalidAddress = 1'b0;
-            end
-        else
-            begin
-                _invalidAddress = 1'b1;
-                _physicalAddress = 11'hz;    
-            end
+        begin
+            if(virtualAddress >=32'h10010000 && virtualAddress <= 32'h10010FFF)
+                begin
+                    temp = (virtualAddress -  32'h10010000)>>2;
+                    _physicalAddress = temp[10:0];
+                    _invalidAddress = 1'b0;
+                end
+            else if(virtualAddress >= 32'h7FFFEFFC && virtualAddress <= 32'h7FFFFFFB)
+                begin
+                    temp2 = (virtualAddress>>2);
+                    _physicalAddress = temp2[10:0];
+                    _invalidAddress = 1'b0;
+                end
+            else
+                begin
+                    _invalidAddress = 1'b1;
+                    _physicalAddress = 11'hz;    
+                end
+        end
     else
         _invalidAddress = 0;
             
