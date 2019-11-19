@@ -42,7 +42,7 @@ begin
                         rfWriteEnable = 1'b1;
                         aluSrc = 1'b0;
                         aluFunc = `ALU_ADD;
-                        rfWriteDataSel = 1'b0;
+                        rfWriteDataSel = 2'b0;
                         invOpcode = 1'b0;
                     end 
                 `MIPS_SUB:
@@ -94,7 +94,7 @@ begin
                 bitXtend = 1'b1;
                 aluFunc = `ALU_ADD;
                 memRead = 1'b1;
-                rfWriteDataSel = 1'b1;
+                rfWriteDataSel = 2'b1;
                 invOpcode = 1'b0;
             end
         `MIPS_SW:
