@@ -27,12 +27,15 @@
 `define MIPS_LH    6'h21
 `define MIPS_LHU   6'h25
 `define MIPS_SLL   6'h00
-`define MIPS_SRL   6'h0A
-`define MIPS_SLLV  6'h64
-`define MIPS_SRLV  6'h6E
-`define MIPS_SRA   6'h0B
-`define MIPS_SRAV  6'h6F
-`define MIPS_JAL   6'h0B
+`define MIPS_BLEZ  6'h6 
+`define MIPS_BGTZ  6'h7   
+`define MIPS_SRL   6'h2
+`define MIPS_SLLV  6'h4
+`define MIPS_SRLV  6'h6
+`define MIPS_SRA   6'h3
+`define MIPS_SRAV  6'h7
+`define MIPS_JAL   6'h3
+`define MIPS_JR    6'h8
 
 
 

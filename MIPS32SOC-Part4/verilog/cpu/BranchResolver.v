@@ -9,7 +9,6 @@ module BranchResolver(
 
     always @ (*)
         begin
-            if(branch != 3'd0)
                 if( (branch == 3'd1) && zero )
                     _branchTaken = 1'b1;
                 else if( (branch == 3'd2) && ~zero )
@@ -22,8 +21,8 @@ module BranchResolver(
                     _branchTaken = 1'b1;
                 else if( (branch == 3'd6) && sign)
                     _branchTaken = 1'b1;
-            else
-                _branchTaken = 1'b0;           
+                else
+                    _branchTaken = 1'b0;           
         end
 
 

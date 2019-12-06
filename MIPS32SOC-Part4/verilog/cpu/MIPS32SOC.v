@@ -3,7 +3,6 @@ module MIPS32SOC (
     input clk, // Clock signal
     input reset,  // Reset signal
     // output invAddr,
-    // output [2:0] mEn
     output invalidOpcode
 );
     wire [31:0] inst /*verilator public*/;
@@ -17,9 +16,9 @@ module MIPS32SOC (
     wire [5:0] opcode;
     wire [1:0]aluSrc;
     wire rfWriteEnable; // Register File Write Enable
-    wire rfWriteAddrSel; // Register File Write Address Select
+    wire [1:0] rfWriteAddrSel; // Register File Write Address Select
     wire [1:0] rfWriteDataSel; // Register File Write Data Select
-    wire [4:0] rfWriteAddr; // Register File Write Address
+    reg [4:0] rfWriteAddr; // Register File Write Address
     reg  [31:0] rfWriteData; // Register File Write Data
     wire [31:0] rfData1 /*verilator public*/;
     wire [31:0] rfData2 /*verilator public*/;
@@ -50,7 +49,6 @@ module MIPS32SOC (
     wire [1:0] memoryBank;
     wire [1:0] memoryDataSize;
     wire memoryBitExt;
-    wire isLui;
     wire [31:0] memoryEncoderWriteData;
     wire [3:0] memoryEncoderMemWrite; 
     wire [31:0] readDataVGA;
@@ -64,6 +62,11 @@ module MIPS32SOC (
     wire branch_taken;
     wire [2:0] branchType;
     wire aluOperand1_source;
+    wire isJal;
+    wire isJr;
+    wire jump;
+    wire [1:0] j_jr;
+    wire rst;
   
     assign func = inst[5:0];
     assign rd = inst[15:11];
@@ -77,16 +80,31 @@ module MIPS32SOC (
     assign jmpTarget32 = {pcPlus4[31:28], inst[25:0], 2'b00};
     assign branchTargetAddr = pcPlus4 + {imm32[29:0], 2'b00};
 
-    assign rfWriteAddr = rfWriteAddrSel? rd : rt; // MUX
-    
-    //register file write data select
-    always @ (*)
-    begin
-      if(isLui)
-        rfWriteData = {imm16, 16'b0};
-      else
-        rfWriteData = rfWriteDataSel[0]? memoryDecoderWriteData : aluResult;
+    assign jump = (isJmp | isJal);
+    assign j_jr = {isJr, jump};
+
+
+    //register file Write Address 
+    always @(*) begin
+      case (rfWriteAddrSel)
+        2'b00: rfWriteAddr = rt;
+        2'b01: rfWriteAddr = rd;
+        2'b10: rfWriteAddr = 5'd31;
+        default: rfWriteAddr = rd;
+      endcase
     end
+
+    //register file write data
+    always @ (*)
+      begin
+        case (rfWriteDataSel)
+          2'h0: rfWriteData = aluResult;
+          2'h1: rfWriteData = memoryDecoderWriteData;
+          2'h2: rfWriteData = {imm16, 16'b0};
+          2'h3: rfWriteData = pcPlus4;
+          default: rfWriteData = aluResult;
+        endcase
+      end
 
     //Memory Bank, indicates the memory bank to acces
     always @ (*)
@@ -103,19 +121,20 @@ module MIPS32SOC (
     //ALU operand 1
     always @(*) begin
       case (aluOperand1_source)
-        1'b0: aluOperand1 = rfData1; 
-        1'b1: aluOperand1 = rfData2;
-        default: aluOperand1 = 32'hx;
+        1'b0: aluOperand1 = rfData1; //rs
+        1'b1: aluOperand1 = rfData2; //rt
+        default: aluOperand1 = 32'bx;
       endcase
 
     end
+
     //ALU operand 2 
     always @(*) begin
       case (aluSrc)
-        2'h0: aluOperand2 = rfData2;
+        2'h0: aluOperand2 = rfData2; //rt
         2'h1: aluOperand2 = imm32; 
-        2'h2: aluOperand2 = {27'h0, inst[10:6]};
-        2'h3: aluOperand2 = rfData1;
+        2'h2: aluOperand2 = rfData1; //rs 
+        2'h3: aluOperand2 = {27'h0, inst[10:6]};
         default: aluOperand2 = 32'hx;
       endcase
     end
@@ -124,13 +143,15 @@ module MIPS32SOC (
   // Next PC value
     always @ (*) 
     begin
-    if(~reset)
-        if(invalidOpcode | invalidAddr | invalidPC)
-          nextPC = nextPC;
-        else
+      case(reset)
+        1'b0:
           begin
-            case (isJmp)
-                  1'b0: 
+            if(invalidOpcode | invalidAddr | invalidPC)
+              nextPC = nextPC;
+            else
+              begin
+                case (j_jr)
+                  2'h0: 
                     begin
                       case (branch_taken)
                         1'b0: nextPC = pcPlus4;
@@ -138,14 +159,19 @@ module MIPS32SOC (
                         default: nextPC = 32'bx;
                       endcase
                     end
-                  1'b1: nextPC = jmpTarget32;
+                  2'h1: nextPC = jmpTarget32;
+                  2'h2: nextPC = rfData1;
+                  2'h3: nextPC = 32'h0;
                   default: nextPC = 32'bx;
-              endcase
+                endcase
+              end
           end
-    else
-      nextPC = 32'h400000;
+        1'b1: nextPC = 32'h400000;
+        default: nextPC = 32'hx;  
+      endcase
     end
     
+
     // PC
     always @ (posedge clk) begin
       PC <= nextPC;
@@ -262,8 +288,6 @@ module MIPS32SOC (
       .func( func ),
       .bgez_bltz (rt),
       .isJmp( isJmp ),
-      .isBeq( isBeq ),
-      .isBne( isBne ),
       .rfWriteDataSel( rfWriteDataSel ),
       .rfWriteAddrSel( rfWriteAddrSel ),
       .rfWriteEnable( rfWriteEnable ),
@@ -273,10 +297,11 @@ module MIPS32SOC (
       .aluFunc( aluFunc ),
       .bitXtend( bitXtend ),
       .invOpcode( invalidOpcode ),
-      .isLui( isLui ),
       .memDataSize ( memoryDataSize ),
       .memBitExt ( memoryBitExt ),
       .branch( branchType ),
-      .aluOp1_source( aluOperand1_source )
+      .aluOp1_source( aluOperand1_source ),
+      .isJal( isJal ),
+      .isJr( isJr )
     );
 endmodule
