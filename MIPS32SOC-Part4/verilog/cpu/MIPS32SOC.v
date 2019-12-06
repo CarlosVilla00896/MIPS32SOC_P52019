@@ -67,6 +67,7 @@ module MIPS32SOC (
     wire jump;
     wire [1:0] j_jr;
     wire rst;
+    reg reg_reset;
   
     assign func = inst[5:0];
     assign rd = inst[15:11];
@@ -146,6 +147,7 @@ module MIPS32SOC (
       case(reset)
         1'b0:
           begin
+            reg_reset = 1'b1;
             if(invalidOpcode | invalidAddr | invalidPC)
               nextPC = nextPC;
             else
@@ -166,7 +168,11 @@ module MIPS32SOC (
                 endcase
               end
           end
-        1'b1: nextPC = 32'h400000;
+        1'b1:
+        begin 
+          nextPC = 32'h400000;
+          reg_reset = 1'b0;
+        end
         default: nextPC = 32'hx;  
       endcase
     end
@@ -249,6 +255,7 @@ module MIPS32SOC (
 
     //Register File
     RegisterFile regFile (
+        .reg_reset( reg_reset ),
         .ra1( rs ),
         .ra2( rt ),
         .wa( rfWriteAddr ),

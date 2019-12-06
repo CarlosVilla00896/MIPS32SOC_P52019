@@ -365,7 +365,6 @@ begin
         `MIPS_SW:
             begin
                 rfWriteAddrSel = 2'b0;
-                rfWriteEnable = 1'b0;
                 aluSrc = 2'b1;
                 bitXtend = 1'b0;
                 aluFunc = `ALU_ADD;

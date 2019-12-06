@@ -4,6 +4,7 @@
  * @size 32
  */
 module RegisterFile(
+    input reg_reset,
     input [4:0] ra1,
     input [4:0] ra2,
     input [4:0] wa,
@@ -21,7 +22,7 @@ module RegisterFile(
     
     always @(posedge clk)
     begin
-        if (we && wa!= 5'd0)
+        if ((we && wa!= 5'd0) && reg_reset)
             memory[wa] <= wd;
     end
 
