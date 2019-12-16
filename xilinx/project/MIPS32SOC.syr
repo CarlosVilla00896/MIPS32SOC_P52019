@@ -1,0 +1,1184 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.02 secs
+ 
+--> 
+Reading design: MIPS32SOC.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "MIPS32SOC.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "MIPS32SOC"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-csg324
+
+---- Source Options
+Top Module Name                    : MIPS32SOC
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ALU.v" into library work
+Parsing verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/alu_defines.vh" included at line 1.
+Parsing module <ALU>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/BitExtender.v" into library work
+Parsing module <BitExtender>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/BranchResolver.v" into library work
+Parsing module <BranchResolver>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ClockGenerator.v" into library work
+Parsing module <ClockGenerator>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ControlUnit.v" into library work
+Parsing verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/alu_defines.vh" included at line 1.
+Parsing verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/mips32_opcodes.vh" included at line 2.
+Parsing module <ControlUnit>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/DataMemory.v" into library work
+Parsing module <DataMemory>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/InstMemory.v" into library work
+Parsing module <InstMemory>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/IO.v" into library work
+Parsing module <IO>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemDecoder.v" into library work
+Parsing module <MemDecoder>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemReadDataDecoder.v" into library work
+Parsing module <MemReadDataDecoder>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemWriteDataEncoder.v" into library work
+Parsing module <MemWriteDataEncoder>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MillisCounter.v" into library work
+Parsing module <MillisCounter>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MIPS32SOC.v" into library work
+Parsing module <MIPS32SOC>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/PCDecoder.v" into library work
+Parsing module <PCDecoder>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/RegisterFile.v" into library work
+Parsing module <RegisterFile>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/DualPortVGARam.v" into library work
+Parsing module <DualPortVGARam>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/FontRom.v" into library work
+Parsing module <FontRom>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/RomColorPalette.v" into library work
+Parsing module <RomColorPalette>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v" into library work
+Parsing module <VGA80X30Color>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGATextCard.v" into library work
+Parsing module <VGATextCard>.
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/alu_defines.vh" into library work
+Analyzing Verilog file "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/mips32_opcodes.vh" into library work
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <MIPS32SOC>.
+WARNING:HDLCompiler:1127 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MIPS32SOC.v" Line 97: Assignment to memAddr ignored, since the identifier is never used
+
+Elaborating module <MillisCounter>.
+WARNING:HDLCompiler:1016 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ClockGenerator.v" Line 15: Port CLK0 is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ClockGenerator.v" Line 25: Port CLK0 is not connected to this instance
+
+Elaborating module <ClockGenerator>.
+
+Elaborating module <DCM_SP(CLKFX_DIVIDE=4,CLKFX_MULTIPLY=2,CLKIN_PERIOD=10)>.
+
+Elaborating module <DCM_SP(CLKFX_DIVIDE=8,CLKFX_MULTIPLY=2,CLKIN_PERIOD=10)>.
+
+Elaborating module <PCDecoder>.
+
+Elaborating module <InstMemory>.
+Reading initialization file \"home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/../../code.mif\".
+
+Elaborating module <MemDecoder>.
+
+Elaborating module <MemWriteDataEncoder>.
+
+Elaborating module <DataMemory>.
+Reading initialization file \"home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/../../data.mif\".
+WARNING:HDLCompiler:1670 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/DataMemory.v" Line 31: Signal <memory> in initial block is partially initialized.
+
+Elaborating module <MemReadDataDecoder>.
+
+Elaborating module <VGATextCard>.
+
+Elaborating module <VGA80X30Color>.
+WARNING:HDLCompiler:413 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v" Line 43: Result of 13-bit expression is truncated to fit in 12-bit target.
+WARNING:HDLCompiler:413 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v" Line 44: Result of 13-bit expression is truncated to fit in 12-bit target.
+WARNING:HDLCompiler:413 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v" Line 69: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v" Line 72: Result of 11-bit expression is truncated to fit in 10-bit target.
+
+Elaborating module <RomColorPalette>.
+
+Elaborating module <DualPortVGARam>.
+
+Elaborating module <FontRom>.
+Reading initialization file \"home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/../../font_rom.mif\".
+
+Elaborating module <IO>.
+
+Elaborating module <RegisterFile>.
+
+Elaborating module <ALU>.
+
+Elaborating module <BranchResolver>.
+
+Elaborating module <BitExtender>.
+
+Elaborating module <ControlUnit>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <MIPS32SOC>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MIPS32SOC.v".
+    Found 32-bit register for signal <PC>.
+    Found 32-bit adder for signal <pcPlus4> created at line 99.
+    Found 32-bit adder for signal <branchTargetAddr> created at line 101.
+    Found 5-bit 4-to-1 multiplexer for signal <rfWriteAddr> created at line 109.
+    Found 32-bit 4-to-1 multiplexer for signal <rfWriteData> created at line 120.
+    Found 32-bit 4-to-1 multiplexer for signal <inData_memRDDecoder> created at line 132.
+    Found 32-bit 4-to-1 multiplexer for signal <aluOperand2> created at line 152.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   9 Multiplexer(s).
+Unit <MIPS32SOC> synthesized.
+
+Synthesizing Unit <MillisCounter>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MillisCounter.v".
+    Found 32-bit register for signal <ms_count>.
+    Found 16-bit register for signal <cycle_count>.
+    Found 16-bit adder for signal <cycle_count[15]_GND_2_o_add_2_OUT> created at line 34.
+    Found 32-bit adder for signal <ms_count[31]_GND_2_o_add_4_OUT> created at line 37.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  48 D-type flip-flop(s).
+Unit <MillisCounter> synthesized.
+
+Synthesizing Unit <ClockGenerator>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ClockGenerator.v".
+    Found 1-bit register for signal <slowClk>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <ClockGenerator> synthesized.
+
+Synthesizing Unit <PCDecoder>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/PCDecoder.v".
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalPC<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 32-bit comparator greater for signal <n0002> created at line 16
+    Found 32-bit comparator greater for signal <n0004> created at line 16
+    Summary:
+	inferred  13 Latch(s).
+	inferred   2 Comparator(s).
+Unit <PCDecoder> synthesized.
+
+Synthesizing Unit <InstMemory>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/InstMemory.v".
+WARNING:Xst:2999 - Signal 'memory', unconnected in block 'InstMemory', is tied to its initial value.
+    Found 2048x32-bit single-port Read Only RAM <Mram_memory> for signal <memory>.
+    Found 32-bit register for signal <rdata>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  32 D-type flip-flop(s).
+Unit <InstMemory> synthesized.
+
+Synthesizing Unit <MemDecoder>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemDecoder.v".
+    Found 13-bit subtractor for signal <virtualAddress[31]_GND_21_o_sub_9_OUT<12:0>> created at line 41.
+    Found 13-bit subtractor for signal <virtualAddress[31]_GND_21_o_sub_12_OUT<12:0>> created at line 49.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <_physicalAddress<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 32-bit comparator lessequal for signal <n0005> created at line 31
+    Found 32-bit comparator lessequal for signal <n0007> created at line 31
+    Found 32-bit comparator lessequal for signal <n0011> created at line 39
+    Found 32-bit comparator lessequal for signal <n0013> created at line 39
+    Found 32-bit comparator lessequal for signal <n0017> created at line 47
+    Found 32-bit comparator lessequal for signal <n0019> created at line 47
+    Found 32-bit comparator lessequal for signal <n0023> created at line 55
+    Found 32-bit comparator lessequal for signal <n0025> created at line 55
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  13 Latch(s).
+	inferred   8 Comparator(s).
+	inferred  18 Multiplexer(s).
+Unit <MemDecoder> synthesized.
+
+Synthesizing Unit <MemWriteDataEncoder>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemWriteDataEncoder.v".
+    Summary:
+	inferred  15 Multiplexer(s).
+Unit <MemWriteDataEncoder> synthesized.
+
+Synthesizing Unit <DataMemory>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/DataMemory.v".
+    Found 2048x32-bit single-port RAM <Mram_memory> for signal <memory>.
+    Found 32-bit register for signal <rdata>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  32 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <DataMemory> synthesized.
+
+Synthesizing Unit <MemReadDataDecoder>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/MemReadDataDecoder.v".
+    Summary:
+	inferred  11 Multiplexer(s).
+Unit <MemReadDataDecoder> synthesized.
+
+Synthesizing Unit <VGATextCard>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGATextCard.v".
+    Summary:
+	no macro.
+Unit <VGATextCard> synthesized.
+
+Synthesizing Unit <VGA80X30Color>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/VGA80X30Color.v".
+    Found 8-bit register for signal <bg_color>.
+    Found 8-bit register for signal <fg_color>.
+    Found 10-bit register for signal <hcount>.
+    Found 10-bit register for signal <vcount>.
+    Found 1-bit register for signal <vsync>.
+    Found 1-bit register for signal <hsync>.
+    Found 2-bit register for signal <blue>.
+    Found 3-bit register for signal <green>.
+    Found 3-bit register for signal <red>.
+    Found 8-bit register for signal <chr_data>.
+    Found 12-bit adder for signal <symb_index> created at line 43.
+    Found 12-bit adder for signal <fontrom_addr> created at line 44.
+    Found 10-bit adder for signal <vcount[9]_GND_39_o_add_24_OUT> created at line 69.
+    Found 10-bit adder for signal <hcount[9]_GND_39_o_add_26_OUT> created at line 72.
+    Found 5x7-bit multiplier for signal <n0112> created at line 43.
+    Found 1-bit 8-to-1 multiplexer for signal <chr_col[2]_PWR_14_o_equal_38_o> created at line 86.
+    Found 10-bit comparator lessequal for signal <n0027> created at line 74
+    Found 10-bit comparator greater for signal <vcount[9]_GND_39_o_LessThan_31_o> created at line 74
+    Found 10-bit comparator lessequal for signal <n0032> created at line 79
+    Found 10-bit comparator greater for signal <hcount[9]_PWR_14_o_LessThan_33_o> created at line 79
+    Found 10-bit comparator greater for signal <GND_39_o_hcount[9]_LessThan_34_o> created at line 84
+    Found 10-bit comparator greater for signal <hcount[9]_PWR_14_o_LessThan_35_o> created at line 84
+    Found 10-bit comparator greater for signal <vcount[9]_GND_39_o_LessThan_36_o> created at line 84
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred  54 D-type flip-flop(s).
+	inferred   7 Comparator(s).
+	inferred   5 Multiplexer(s).
+Unit <VGA80X30Color> synthesized.
+
+Synthesizing Unit <RomColorPalette>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/RomColorPalette.v".
+WARNING:Xst:2999 - Signal 'memory', unconnected in block 'RomColorPalette', is tied to its initial value.
+    Found 16x8-bit dual-port Read Only RAM <Mram_memory> for signal <memory>.
+    Summary:
+	inferred   1 RAM(s).
+Unit <RomColorPalette> synthesized.
+
+Synthesizing Unit <DualPortVGARam>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/DualPortVGARam.v".
+    Found 2048x32-bit dual-port RAM <Mram_memory> for signal <memory>.
+    Found 32-bit register for signal <rdb>.
+    Found 32-bit register for signal <rda>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  64 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <DualPortVGARam> synthesized.
+
+Synthesizing Unit <FontRom>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/vga/FontRom.v".
+WARNING:Xst:2999 - Signal 'memory', unconnected in block 'FontRom', is tied to its initial value.
+    Found 4096x8-bit single-port Read Only RAM <Mram_memory> for signal <memory>.
+    Found 8-bit register for signal <dout>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <FontRom> synthesized.
+
+Synthesizing Unit <IO>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/IO.v".
+    Found 32-bit 4-to-1 multiplexer for signal <_n0014> created at line 18.
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <IO> synthesized.
+
+Synthesizing Unit <RegisterFile>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/RegisterFile.v".
+    Found 32x32-bit dual-port RAM <Mram_memory> for signal <memory>.
+    Summary:
+	inferred   2 RAM(s).
+Unit <RegisterFile> synthesized.
+
+Synthesizing Unit <ALU>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ALU.v".
+    Found 32-bit subtractor for signal <a[31]_b[31]_sub_3_OUT> created at line 17.
+    Found 32-bit adder for signal <a[31]_b[31]_add_1_OUT> created at line 16.
+    Found 32-bit shifter logical left for signal <a[31]_b[31]_shift_left_8_OUT> created at line 23
+    Found 32-bit shifter logical right for signal <a[31]_b[31]_shift_right_9_OUT> created at line 24
+    Found 32-bit shifter arithmetic right for signal <a[31]_b[31]_shift_right_10_OUT> created at line 25
+    Found 32-bit 10-to-1 multiplexer for signal <res> created at line 15.
+    Found 32-bit comparator greater for signal <b[31]_a[31]_LessThan_6_o> created at line 20
+    Found 32-bit comparator greater for signal <a[31]_b[31]_LessThan_7_o> created at line 21
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred  14 Multiplexer(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <ALU> synthesized.
+
+Synthesizing Unit <BranchResolver>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/BranchResolver.v".
+    Summary:
+	inferred   5 Multiplexer(s).
+Unit <BranchResolver> synthesized.
+
+Synthesizing Unit <BitExtender>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/BitExtender.v".
+    Summary:
+	inferred   1 Multiplexer(s).
+Unit <BitExtender> synthesized.
+
+Synthesizing Unit <ControlUnit>.
+    Related source file is "/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/verilog/cpu/ControlUnit.v".
+    Found 32x4-bit Read Only RAM for signal <_n0750>
+    Summary:
+	inferred   1 RAM(s).
+	inferred  30 Multiplexer(s).
+Unit <ControlUnit> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 8
+ 16x8-bit dual-port Read Only RAM                      : 1
+ 2048x32-bit dual-port RAM                             : 1
+ 2048x32-bit single-port RAM                           : 1
+ 2048x32-bit single-port Read Only RAM                 : 1
+ 32x32-bit dual-port RAM                               : 2
+ 32x4-bit single-port Read Only RAM                    : 1
+ 4096x8-bit single-port Read Only RAM                  : 1
+# Multipliers                                          : 1
+ 7x5-bit multiplier                                    : 1
+# Adders/Subtractors                                   : 10
+ 10-bit adder                                          : 2
+ 12-bit adder                                          : 2
+ 13-bit subtractor                                     : 1
+ 16-bit adder                                          : 1
+ 32-bit adder                                          : 3
+ 32-bit addsub                                         : 1
+# Registers                                            : 19
+ 1-bit register                                        : 3
+ 10-bit register                                       : 2
+ 16-bit register                                       : 1
+ 2-bit register                                        : 1
+ 3-bit register                                        : 2
+ 32-bit register                                       : 6
+ 8-bit register                                        : 4
+# Latches                                              : 26
+ 1-bit latch                                           : 26
+# Comparators                                          : 19
+ 10-bit comparator greater                             : 5
+ 10-bit comparator lessequal                           : 2
+ 32-bit comparator greater                             : 4
+ 32-bit comparator lessequal                           : 8
+# Multiplexers                                         : 118
+ 1-bit 2-to-1 multiplexer                              : 17
+ 1-bit 8-to-1 multiplexer                              : 1
+ 13-bit 2-to-1 multiplexer                             : 6
+ 16-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 11
+ 3-bit 2-to-1 multiplexer                              : 13
+ 32-bit 2-to-1 multiplexer                             : 35
+ 32-bit 4-to-1 multiplexer                             : 4
+ 4-bit 2-to-1 multiplexer                              : 21
+ 5-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 8
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <DataMemory>.
+INFO:Xst:3226 - The RAM <Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <rdata>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 2048-word x 32-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     enA            | connected to signal <en>            | high     |
+    |     weA<3>         | connected to signal <memWrite<0>>   | high     |
+    |     weA<2>         | connected to signal <memWrite<1>>   | high     |
+    |     weA<1>         | connected to signal <memWrite<2>>   | high     |
+    |     weA<0>         | connected to signal <memWrite<3>>   | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <wdata>         |          |
+    |     doA            | connected to signal <rdata>         |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <DataMemory> synthesized (advanced).
+
+Synthesizing (advanced) Unit <DualPortVGARam>.
+INFO:Xst:3226 - The RAM <Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <rda> <rdb>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 2048-word x 32-bit                  |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clka>          | rise     |
+    |     enA            | connected to signal <enablea>       | high     |
+    |     weA<3>         | connected to signal <wea<0>>        | high     |
+    |     weA<2>         | connected to signal <wea<1>>        | high     |
+    |     weA<1>         | connected to signal <wea<2>>        | high     |
+    |     weA<0>         | connected to signal <wea<3>>        | high     |
+    |     addrA          | connected to signal <addra>         |          |
+    |     diA            | connected to signal <wda>           |          |
+    |     doA            | connected to signal <rda>           |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 2048-word x 32-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clkb>          | rise     |
+    |     addrB          | connected to signal <addrb>         |          |
+    |     doB            | connected to signal <rdb>           |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <DualPortVGARam> synthesized (advanced).
+
+Synthesizing (advanced) Unit <InstMemory>.
+INFO:Xst:3226 - The RAM <Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <rdata>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 2048-word x 32-bit                  |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <rdata>         |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <InstMemory> synthesized (advanced).
+
+Synthesizing (advanced) Unit <MillisCounter>.
+The following registers are absorbed into counter <cycle_count>: 1 register on signal <cycle_count>.
+The following registers are absorbed into counter <ms_count>: 1 register on signal <ms_count>.
+Unit <MillisCounter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <RegisterFile>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_memory> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <wa>            |          |
+    |     diA            | connected to signal <wd>            |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <ra1>           |          |
+    |     doB            | connected to signal <rd1>           |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_memory1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <wa>            |          |
+    |     diA            | connected to signal <wd>            |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
+    |     addrB          | connected to signal <ra2>           |          |
+    |     doB            | connected to signal <rd2>           |          |
+    -----------------------------------------------------------------------
+Unit <RegisterFile> synthesized (advanced).
+
+Synthesizing (advanced) Unit <VGA80X30Color>.
+The following registers are absorbed into counter <hcount>: 1 register on signal <hcount>.
+The following registers are absorbed into counter <vcount>: 1 register on signal <vcount>.
+	Multiplier <Mmult_n0112> in block <VGA80X30Color> and adder/subtractor <Madd_symb_index> in block <VGA80X30Color> are combined into a MAC<Maddsub_n0112>.
+Unit <VGA80X30Color> synthesized (advanced).
+
+Synthesizing (advanced) Unit <VGATextCard>.
+INFO:Xst:3226 - The RAM <fontRom/Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <fontRom/dout>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4096-word x 8-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <vclk>          | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <fontrom_addr>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <fontrom_rd>    |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <palRom/Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <vgaproto/fg_color> <vgaproto/bg_color>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <vclk>          | rise     |
+    |     enA            | connected to internal node          | high     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <palrom_addr2>  |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <vgaproto/fg_color> |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <vclk>          | rise     |
+    |     enB            | connected to internal node          | high     |
+    |     weB            | connected to signal <GND>           | high     |
+    |     addrB          | connected to signal <palrom_addr1>  |          |
+    |     diB            | connected to signal <GND>           |          |
+    |     doB            | connected to signal <vgaproto/bg_color> |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <VGATextCard> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 8
+ 16x8-bit dual-port block Read Only RAM                : 1
+ 2048x32-bit dual-port block RAM                       : 1
+ 2048x32-bit single-port block RAM                     : 1
+ 2048x32-bit single-port block Read Only RAM           : 1
+ 32x32-bit dual-port distributed RAM                   : 2
+ 32x4-bit single-port distributed Read Only RAM        : 1
+ 4096x8-bit single-port block Read Only RAM            : 1
+# MACs                                                 : 1
+ 7x5-to-12-bit MAC                                     : 1
+# Adders/Subtractors                                   : 5
+ 12-bit adder                                          : 1
+ 13-bit subtractor                                     : 1
+ 32-bit adder                                          : 2
+ 32-bit addsub                                         : 1
+# Counters                                             : 4
+ 10-bit up counter                                     : 2
+ 16-bit up counter                                     : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 51
+ Flip-Flops                                            : 51
+# Comparators                                          : 19
+ 10-bit comparator greater                             : 5
+ 10-bit comparator lessequal                           : 2
+ 32-bit comparator greater                             : 4
+ 32-bit comparator lessequal                           : 8
+# Multiplexers                                         : 110
+ 1-bit 2-to-1 multiplexer                              : 17
+ 1-bit 8-to-1 multiplexer                              : 1
+ 13-bit 2-to-1 multiplexer                             : 6
+ 16-bit 2-to-1 multiplexer                             : 1
+ 2-bit 2-to-1 multiplexer                              : 11
+ 3-bit 2-to-1 multiplexer                              : 13
+ 32-bit 2-to-1 multiplexer                             : 35
+ 32-bit 4-to-1 multiplexer                             : 4
+ 4-bit 2-to-1 multiplexer                              : 21
+ 5-bit 4-to-1 multiplexer                              : 1
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <MIPS32SOC> ...
+
+Optimizing unit <IO> ...
+
+Optimizing unit <VGATextCard> ...
+
+Optimizing unit <MemWriteDataEncoder> ...
+
+Optimizing unit <PCDecoder> ...
+
+Optimizing unit <MemReadDataDecoder> ...
+
+Optimizing unit <ControlUnit> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <MemDecoder> ...
+WARNING:Xst:2677 - Node <pcDec/_physicalPC_0> of sequential type is unconnected in block <MIPS32SOC>.
+WARNING:Xst:2677 - Node <pcDec/_physicalPC_1> of sequential type is unconnected in block <MIPS32SOC>.
+WARNING:Xst:1710 - FF/Latch <PC_31> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_30> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_29> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_28> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_27> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_26> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_25> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_24> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_23> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_21> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_20> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_19> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_18> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_17> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_16> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_15> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_14> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <PC_13> (without init value) has a constant value of 0 in block <MIPS32SOC>. This FF/Latch will be trimmed during the optimization process.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block MIPS32SOC, actual ratio is 25.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 107
+ Flip-Flops                                            : 107
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : MIPS32SOC.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1951
+#      GND                         : 1
+#      INV                         : 7
+#      LUT1                        : 81
+#      LUT2                        : 37
+#      LUT3                        : 137
+#      LUT4                        : 190
+#      LUT5                        : 229
+#      LUT6                        : 845
+#      MUXCY                       : 213
+#      MUXF7                       : 51
+#      VCC                         : 1
+#      XORCY                       : 159
+# FlipFlops/Latches                : 131
+#      FD                          : 3
+#      FDE                         : 28
+#      FDR                         : 26
+#      FDRE                        : 50
+#      LD                          : 13
+#      LDE_1                       : 11
+# RAMS                             : 29
+#      RAM32M                      : 10
+#      RAM32X1D                    : 4
+#      RAMB16BWER                  : 14
+#      RAMB8BWER                   : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 23
+#      IBUF                        : 9
+#      IBUFG                       : 1
+#      OBUF                        : 13
+# DCMs                             : 2
+#      DCM_SP                      : 2
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             131  out of  11440     1%  
+ Number of Slice LUTs:                 1574  out of   5720    27%  
+    Number used as Logic:              1526  out of   5720    26%  
+    Number used as Memory:               48  out of   1440     3%  
+       Number used as RAM:               48
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   1584
+   Number with an unused Flip Flop:    1453  out of   1584    91%  
+   Number with an unused LUT:            10  out of   1584     0%  
+   Number of fully used LUT-FF pairs:   121  out of   1584     7%  
+   Number of unique control sets:        14
+
+IO Utilization: 
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of    200    11%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               15  out of     32    46%  
+    Number using Block RAM only:         15
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------------------------------+-----------------------------------+-------+
+Clock Signal                                                      | Clock buffer(FF name)             | Load  |
+------------------------------------------------------------------+-----------------------------------+-------+
+clkGenerator/slowClk                                              | NONE(PC_0)                        | 32    |
+clk                                                               | DCM_SP:CLKFX                      | 61    |
+clk                                                               | DCM_SP:CLKFX                      | 47    |
+pcDec/n0002(pcDec/n00021:O)                                       | NONE(*)(pcDec/_physicalPC_12)     | 11    |
+memDec/memWrite_memRead_OR_19_o(memDec/memWrite_memRead_OR_19_o:O)| NONE(*)(memDec/_physicalAddress_0)| 13    |
+------------------------------------------------------------------+-----------------------------------+-------+
+(*) These 2 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 18.809ns (Maximum Frequency: 53.165MHz)
+   Minimum input arrival time before clock: 9.953ns
+   Maximum output required time after clock: 21.383ns
+   Maximum combinational path delay: 11.835ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clkGenerator/slowClk'
+  Clock period: 18.809ns (frequency: 53.165MHz)
+  Total number of paths / destination ports: 1020501637 / 196
+-------------------------------------------------------------------------
+Delay:               18.809ns (Levels of Logic = 14)
+  Source:            instMem/Mram_memory1 (RAM)
+  Destination:       regFile/Mram_memory14 (RAM)
+  Source Clock:      clkGenerator/slowClk rising
+  Destination Clock: clkGenerator/slowClk rising
+
+  Data Path: instMem/Mram_memory1 to regFile/Mram_memory14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16BWER:CLKA->DOA0   46   1.850   1.595  instMem/Mram_memory1 (inst<0>)
+     LUT3:I1->O           19   0.203   1.072  controlUnit/bitXtend21_SW0 (N455)
+     LUT6:I5->O           22   0.205   1.134  controlUnit/Mmux_aluOp1_source11_1 (controlUnit/Mmux_aluOp1_source11)
+     LUT3:I2->O           11   0.205   1.227  Mmux_aluOperand121 (aluOperand1<10>)
+     LUT6:I1->O            4   0.203   0.912  alu/Sh1071 (alu/Sh107)
+     LUT6:I3->O            1   0.205   0.580  alu/Mmux_res9231 (alu/Mmux_res923)
+     LUT6:I5->O            1   0.205   0.924  alu/Mmux_res9233_SW0 (N516)
+     LUT6:I1->O           13   0.203   1.297  alu/Mmux_res9236 (aluResult<19>)
+     LUT6:I0->O            5   0.203   1.059  memDec/PWR_9_o_virtualAddress[31]_AND_5_o3 (memDec/PWR_9_o_virtualAddress[31]_AND_5_o3)
+     LUT5:I0->O            1   0.203   0.000  memDec/GND_21_o_virtualAddress[31]_AND_3_o1_SW0_G (N1173)
+     MUXF7:I1->O          16   0.140   1.005  memDec/GND_21_o_virtualAddress[31]_AND_3_o1_SW0 (N630)
+     LUT6:I5->O            1   0.205   0.580  Mmux_inData_memRDDecoder323_SW4 (N811)
+     LUT6:I5->O            3   0.205   0.755  Mmux_inData_memRDDecoder323 (inData_memRDDecoder<23>)
+     LUT6:I4->O           16   0.203   1.109  memReadDataDecoder/dataSize[1]_GND_37_o_AND_12_o13 (memReadDataDecoder/dataSize[1]_GND_37_o_AND_12_o12)
+     LUT6:I4->O            2   0.203   0.616  Mmux_rfWriteData10 (rfWriteData<18>)
+     RAM32M:DIA0               0.303          regFile/Mram_memory14
+    ----------------------------------------
+    Total                     18.809ns (4.944ns logic, 13.865ns route)
+                                       (26.3% logic, 73.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 2.913ns (frequency: 343.327MHz)
+  Total number of paths / destination ports: 3113 / 253
+-------------------------------------------------------------------------
+Delay:               5.825ns (Levels of Logic = 3)
+  Source:            millisCounter/cycle_count_6 (FF)
+  Destination:       millisCounter/cycle_count_0 (FF)
+  Source Clock:      clk rising 0.5X
+  Destination Clock: clk rising 0.5X
+
+  Data Path: millisCounter/cycle_count_6 to millisCounter/cycle_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.447   0.981  millisCounter/cycle_count_6 (millisCounter/cycle_count_6)
+     LUT6:I0->O            1   0.203   0.944  millisCounter/cycle_count[15]_PWR_2_o_equal_4_o<15>1 (millisCounter/cycle_count[15]_PWR_2_o_equal_4_o<15>)
+     LUT6:I0->O           33   0.203   1.410  millisCounter/cycle_count[15]_PWR_2_o_equal_4_o<15>3 (millisCounter/cycle_count[15]_PWR_2_o_equal_4_o)
+     LUT2:I0->O           16   0.203   1.004  millisCounter/Mcount_cycle_count_val1 (millisCounter/Mcount_cycle_count_val)
+     FDR:R                     0.430          millisCounter/cycle_count_0
+    ----------------------------------------
+    Total                      5.825ns (1.486ns logic, 4.339ns route)
+                                       (25.5% logic, 74.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clkGenerator/slowClk'
+  Total number of paths / destination ports: 989 / 106
+-------------------------------------------------------------------------
+Offset:              8.749ns (Levels of Logic = 7)
+  Source:            resetIn (PAD)
+  Destination:       PC_0 (FF)
+  Destination Clock: clkGenerator/slowClk rising
+
+  Data Path: resetIn to PC_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            63   1.222   1.862  resetIn_IBUF (resetIn_IBUF)
+     LUT3:I0->O            2   0.205   0.864  Mmux_nextPC234_SW1 (N295)
+     LUT6:I2->O            1   0.203   0.924  branchResolver/Mmux__branchTaken11_SW10 (N877)
+     LUT6:I1->O            2   0.203   0.864  Mmux_nextPC234 (nextPC2<25>)
+     LUT4:I0->O            1   0.203   0.684  pcDec/n0004214 (pcDec/n0004213)
+     LUT6:I4->O           16   0.203   1.005  pcDec/n0004215 (pcDec/n00043)
+     LUT6:I5->O            1   0.205   0.000  PC_2_dpot (PC_2_dpot)
+     FDE:D                     0.102          PC_2
+    ----------------------------------------
+    Total                      8.749ns (2.546ns logic, 6.203ns route)
+                                       (29.1% logic, 70.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 86 / 86
+-------------------------------------------------------------------------
+Offset:              4.782ns (Levels of Logic = 2)
+  Source:            resetIn (PAD)
+  Destination:       millisCounter/ms_count_0 (FF)
+  Destination Clock: clk rising 0.5X
+
+  Data Path: resetIn to millisCounter/ms_count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            63   1.222   1.633  resetIn_IBUF (resetIn_IBUF)
+     INV:I->O             32   0.206   1.291  reset1_INV_0 (reset)
+     FDRE:R                    0.430          millisCounter/ms_count_0
+    ----------------------------------------
+    Total                      4.782ns (1.858ns logic, 2.924ns route)
+                                       (38.9% logic, 61.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'pcDec/n0002'
+  Total number of paths / destination ports: 385 / 22
+-------------------------------------------------------------------------
+Offset:              9.953ns (Levels of Logic = 7)
+  Source:            resetIn (PAD)
+  Destination:       pcDec/_physicalPC_12 (LATCH)
+  Destination Clock: pcDec/n0002 rising
+
+  Data Path: resetIn to pcDec/_physicalPC_12
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            63   1.222   1.862  resetIn_IBUF (resetIn_IBUF)
+     LUT3:I0->O            2   0.205   0.864  Mmux_nextPC234_SW1 (N295)
+     LUT6:I2->O            1   0.203   0.924  branchResolver/Mmux__branchTaken11_SW10 (N877)
+     LUT6:I1->O            2   0.203   0.864  Mmux_nextPC234 (nextPC2<25>)
+     LUT4:I0->O            1   0.203   0.684  pcDec/n0004214 (pcDec/n0004213)
+     LUT6:I4->O           16   0.203   1.109  pcDec/n0004215 (pcDec/n00043)
+     LUT2:I0->O           11   0.203   0.882  pcDec/n0004_inv1 (pcDec/n0004_inv)
+     LDE_1:GE                  0.322          pcDec/_physicalPC_11
+    ----------------------------------------
+    Total                      9.953ns (2.764ns logic, 7.189ns route)
+                                       (27.8% logic, 72.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            vgaTextCard/vgaproto/red_2 (FF)
+  Destination:       red<2> (PAD)
+  Source Clock:      clk rising 0.2X
+
+  Data Path: vgaTextCard/vgaproto/red_2 to red<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             1   0.447   0.579  vgaTextCard/vgaproto/red_2 (vgaTextCard/vgaproto/red_2)
+     OBUF:I->O                 2.571          red_2_OBUF (red<2>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clkGenerator/slowClk'
+  Total number of paths / destination ports: 8027276 / 3
+-------------------------------------------------------------------------
+Offset:              21.383ns (Levels of Logic = 16)
+  Source:            instMem/Mram_memory1 (RAM)
+  Destination:       invalidPC (PAD)
+  Source Clock:      clkGenerator/slowClk rising
+
+  Data Path: instMem/Mram_memory1 to invalidPC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16BWER:CLKA->DOA0   46   1.850   1.595  instMem/Mram_memory1 (inst<0>)
+     LUT3:I1->O           19   0.203   1.072  controlUnit/bitXtend21_SW0 (N455)
+     LUT6:I5->O           22   0.205   1.134  controlUnit/Mmux_aluOp1_source11_1 (controlUnit/Mmux_aluOp1_source11)
+     LUT6:I5->O           23   0.205   1.258  Mmux_aluOperand2121_1 (Mmux_aluOperand2121)
+     LUT6:I4->O            1   0.203   0.808  alu/Sh14111_SW0 (N438)
+     LUT6:I3->O            2   0.205   0.617  alu/Sh1411 (alu/Sh141)
+     LUT6:I5->O            1   0.205   0.580  alu/Mmux_res9112_SW0 (N518)
+     LUT6:I5->O            1   0.205   0.000  alu/Mmux_res9115_G (N1083)
+     MUXF7:I1->O          13   0.140   1.161  alu/Mmux_res9115 (aluResult<13>)
+     LUT5:I2->O            1   0.205   0.580  alu/isZero<31>6 (alu/isZero<31>5)
+     LUT6:I5->O           13   0.205   0.933  alu/isZero<31>7 (alu/isZero<31>6)
+     LUT6:I5->O           15   0.205   0.982  branchResolver/Mmux__branchTaken11 (branch_taken)
+     LUT6:I5->O           17   0.205   1.028  Mmux_nextPC2441 (nextPC2<31>)
+     LUT5:I4->O            2   0.205   0.617  pcDec/n00021_SW0_SW0 (N372)
+     LUT6:I5->O           12   0.205   1.013  pcDec/n00021 (pcDec/n0002)
+     LUT3:I1->O            1   0.203   0.579  pcDec/_invalidPC1 (invalidPC_OBUF)
+     OBUF:I->O                 2.571          invalidPC_OBUF (invalidPC)
+    ----------------------------------------
+    Total                     21.383ns (7.425ns logic, 13.958ns route)
+                                       (34.7% logic, 65.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 61 / 1
+-------------------------------------------------------------------------
+Delay:               11.835ns (Levels of Logic = 8)
+  Source:            resetIn (PAD)
+  Destination:       invalidPC (PAD)
+
+  Data Path: resetIn to invalidPC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            63   1.222   1.862  resetIn_IBUF (resetIn_IBUF)
+     LUT3:I0->O            2   0.205   0.864  Mmux_nextPC236_SW1 (N298)
+     LUT6:I2->O            1   0.203   0.924  branchResolver/Mmux__branchTaken11_SW12 (N880)
+     LUT6:I1->O            2   0.203   0.961  Mmux_nextPC236 (nextPC2<26>)
+     LUT5:I0->O            2   0.203   0.617  pcDec/n00021_SW0_SW0 (N372)
+     LUT6:I5->O           12   0.205   1.013  pcDec/n00021 (pcDec/n0002)
+     LUT3:I1->O            1   0.203   0.579  pcDec/_invalidPC1 (invalidPC_OBUF)
+     OBUF:I->O                 2.571          invalidPC_OBUF (invalidPC)
+    ----------------------------------------
+    Total                     11.835ns (5.015ns logic, 6.820ns route)
+                                       (42.4% logic, 57.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+clk                            |    6.630|         |         |         |
+clkGenerator/slowClk           |   16.053|         |         |         |
+memDec/memWrite_memRead_OR_19_o|         |    5.033|         |         |
+-------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clkGenerator/slowClk
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+clk                            |    8.187|         |         |         |
+clkGenerator/slowClk           |   18.809|         |         |         |
+memDec/memWrite_memRead_OR_19_o|         |   10.634|         |         |
+pcDec/n0002                    |    1.531|         |         |         |
+-------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock memDec/memWrite_memRead_OR_19_o
+--------------------+---------+---------+---------+---------+
+                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+--------------------+---------+---------+---------+---------+
+clkGenerator/slowClk|         |         |   17.777|         |
+--------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock pcDec/n0002
+--------------------+---------+---------+---------+---------+
+                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+--------------------+---------+---------+---------+---------+
+clkGenerator/slowClk|   18.729|         |         |         |
+--------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 21.00 secs
+Total CPU time to Xst completion: 18.87 secs
+ 
+--> 
+
+
+Total memory usage is 395612 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   57 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
+

@@ -1,0 +1,78 @@
+Release 14.7 Drc P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sun Dec 15 17:45:59 2019
+
+drc -z MIPS32SOC.ncd MIPS32SOC.pcf
+
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   memDec/memWrite_memRead_OR_19_o is sourced by a combinatorial pin. This is
+   not good design practice. Use the CE pin to control the loading of data into
+   the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net pcDec/n0002 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory12_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory11_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory14_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory5_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory4_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory13_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <regFile/Mram_memory15_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:2212 - Async clocking for BRAM (comp
+   vgaTextCard/frameBuff/Mram_memory1) port(s) with READ_FIRST mode has certain
+   restrictions. Make sure that there is no address collision. A read/write on
+   one port and a write operation from the other port at the same address is not
+   allowed. RAMB16BWER, when both ports are 18 bits wide or smaller, A13-6
+   including A4 cannot be same. When any one port is 36 bits wide, A13-7
+   including A5 cannot be the same. Violating this restriction may result in the
+   incorrect operation of the BRAM.
+WARNING:PhysDesignRules:2212 - Async clocking for BRAM (comp
+   vgaTextCard/frameBuff/Mram_memory2) port(s) with READ_FIRST mode has certain
+   restrictions. Make sure that there is no address collision. A read/write on
+   one port and a write operation from the other port at the same address is not
+   allowed. RAMB16BWER, when both ports are 18 bits wide or smaller, A13-6
+   including A4 cannot be same. When any one port is 36 bits wide, A13-7
+   including A5 cannot be the same. Violating this restriction may result in the
+   incorrect operation of the BRAM.
+WARNING:PhysDesignRules:2212 - Async clocking for BRAM (comp
+   vgaTextCard/frameBuff/Mram_memory3) port(s) with READ_FIRST mode has certain
+   restrictions. Make sure that there is no address collision. A read/write on
+   one port and a write operation from the other port at the same address is not
+   allowed. RAMB16BWER, when both ports are 18 bits wide or smaller, A13-6
+   including A4 cannot be same. When any one port is 36 bits wide, A13-7
+   including A5 cannot be the same. Violating this restriction may result in the
+   incorrect operation of the BRAM.
+WARNING:PhysDesignRules:2212 - Async clocking for BRAM (comp
+   vgaTextCard/frameBuff/Mram_memory4) port(s) with READ_FIRST mode has certain
+   restrictions. Make sure that there is no address collision. A read/write on
+   one port and a write operation from the other port at the same address is not
+   allowed. RAMB16BWER, when both ports are 18 bits wide or smaller, A13-6
+   including A4 cannot be same. When any one port is 36 bits wide, A13-7
+   including A5 cannot be the same. Violating this restriction may result in the
+   incorrect operation of the BRAM.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp clkGenerator/cpu_dcm,
+   consult the device Data Sheet.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp clkGenerator/vga_dcm,
+   consult the device Data Sheet.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+DRC detected 0 errors and 17 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

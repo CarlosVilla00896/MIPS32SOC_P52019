@@ -1,0 +1,46 @@
+Release 14.7 ngdbuild P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line:
+/home/carlos_villa/Documentos/Unitec/Organizacion_Computadoras2/Xilinx/Xilinx_In
+stallation/Xilinx_ISE_Install/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild
+-intstyle ise -dd _ngo -nt timestamp -uc
+/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/MIPS32SOC_pins.ucf -p
+xc6slx9-csg324-3 MIPS32SOC.ngc MIPS32SOC.ngd
+
+Reading NGO file
+"/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/project/MIPS32SOC.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file
+"/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/MIPS32SOC_pins.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem - The Period constraint <PERIOD = 100MHz;>
+   [/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/MIPS32SOC_pins.ucf(1)], is
+   specified using the Net Period method which is not recommended. Please use
+   the Timespec PERIOD method.
+
+Done...
+
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 408792 kilobytes
+
+Writing NGD file "MIPS32SOC.ngd" ...
+Total REAL time to NGDBUILD completion:  3 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "MIPS32SOC.bld"...

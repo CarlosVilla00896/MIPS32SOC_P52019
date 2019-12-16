@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/project/MIPS32SOC.ncd
+OUTFILE=/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/project/MIPS32SOC.bit
+FAMILY=Spartan6
+PART=xc6slx9-3csg324
+WORKINGDIR=/home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/project
+LICENSE=WebPack
+USER_INFO=__0_0_0

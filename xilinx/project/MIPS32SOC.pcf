@@ -1,0 +1,31 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Dec 15 17:45:40 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "blue<0>" LOCATE = SITE "B11" LEVEL 1;
+COMP "blue<1>" LOCATE = SITE "A11" LEVEL 1;
+COMP "hsync" LOCATE = SITE "B12" LEVEL 1;
+COMP "vsync" LOCATE = SITE "A12" LEVEL 1;
+COMP "resetIn" LOCATE = SITE "C17" LEVEL 1;
+COMP "invalidPC" LOCATE = SITE "N15" LEVEL 1;
+COMP "red<0>" LOCATE = SITE "A9" LEVEL 1;
+COMP "red<1>" LOCATE = SITE "B9" LEVEL 1;
+COMP "red<2>" LOCATE = SITE "C9" LEVEL 1;
+COMP "green<0>" LOCATE = SITE "C10" LEVEL 1;
+COMP "green<1>" LOCATE = SITE "A10" LEVEL 1;
+COMP "green<2>" LOCATE = SITE "C11" LEVEL 1;
+COMP "keypadIn<0>" LOCATE = SITE "M18" LEVEL 1;
+COMP "keypadIn<1>" LOCATE = SITE "L18" LEVEL 1;
+COMP "keypadIn<2>" LOCATE = SITE "M16" LEVEL 1;
+COMP "keypadIn<3>" LOCATE = SITE "L17" LEVEL 1;
+COMP "keypadIn<4>" LOCATE = SITE "K17" LEVEL 1;
+COMP "keypadIn<5>" LOCATE = SITE "K18" LEVEL 1;
+COMP "keypadIn<6>" LOCATE = SITE "F17" LEVEL 1;
+COMP "keypadIn<7>" LOCATE = SITE "F18" LEVEL 1;
+COMP "invalidOpcode" LOCATE = SITE "P15" LEVEL 1;
+COMP "invalidAddr" LOCATE = SITE "P16" LEVEL 1;
+NET "clk_IBUFG" PERIOD = 10 ns HIGH 50%;
+SCHEMATIC END;
+

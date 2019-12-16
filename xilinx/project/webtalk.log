@@ -1,0 +1,16 @@
+Release 14.7 - WebTalk (P.20131013)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Project Information
+--------------------
+ProjectID=054F800F8F0F689D4C384E47D173E58F
+ProjectIteration=1
+
+WebTalk Summary
+----------------
+INFO:WebTalk:1 - WebTalk is enabled because you are using a WebPACK license.
+
+INFO:WebTalk:8 - WebTalk Install setting is ON.
+INFO:WebTalk:6 - WebTalk User setting is ON.
+
+INFO:WebTalk:5 - /home/carlos_villa/GitHub/MIPS32SOC_P52019/xilinx/project/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /home/carlos_villa/Documentos/Unitec/Organizacion_Computadoras2/Xilinx/Xilinx_Installation/Xilinx_ISE_Install/14.7/ISE_DS/ISE/data/reports/webtalk_introduction.html
